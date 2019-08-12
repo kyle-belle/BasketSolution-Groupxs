@@ -43,3 +43,31 @@ describe("basketCount()", () => {
         expect(basketCount).to.equal(expected);
     });
 });
+
+describe("validateBasket()", () => {
+    it("Should take in a basket object as input which must contain a valid id which cannot include spaces", () => {
+        let expected = true;
+
+        let input = {
+            id: "123",
+            items: []
+        }
+
+        let valid = BasketSolution.validateBasket(input);
+
+        expect(valid).to.equal(expected);
+
+        expected = false;
+
+        input = {
+            id: "1 23",
+            items: []
+        }
+
+        valid = BasketSolution.validateBasket(input);
+
+        expect(valid).to.equal(expected);
+    });
+
+    
+});
